@@ -1,3 +1,10 @@
+"""
+Devuelve país y cuidad de la IP entrada.
+
+---Odrork--
+
+"""
+
 
 #Import de geocoder
 import geocoder as geo
