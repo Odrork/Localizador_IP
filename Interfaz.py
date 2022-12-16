@@ -39,12 +39,12 @@ entry.config(justify="rigth", state="normal")
 
 #Boton 'Aceptar' 
 buttonAceptar = Button(root, text='Aceptar', command=Localizar(label))
-buttonAceptar.place(x=40, y=20)
+buttonAceptar.place(x=25, y=20)
 buttonAceptar.grid(row=4, column=0, padx=5, pady=5)
 
 #Boton 'Cancelar' 
 buttonCancelar = Button(root, text='Cancelar', command=root.destroy)
-buttonCancelar = ttk.Button('Cancelar')
+buttonCancelar.place(x=175, y=20)
 buttonCancelar.grid(row=4, column=1, padx=5, pady=5)
 
 #Loop de la ventana. 
