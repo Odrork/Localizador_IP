@@ -1,11 +1,7 @@
-# Geocoder_Python
+# Localizador de IP
 
-  Pequeño programa que localiza pais y cuidad de la IP entrada. 
+  Codigo creado a partir Geocoder. Programa que al entrar una IP devuelve país y cuidad de origen de la IP.
   
-## Instalacion Geocoder
- 
-  >pip install geocoder
-  
-## Links referencia: 
-  
-  >https://github.com/DenisCarriere/geocoder
+## Versiones 
+
+  >Version 1.0: PRimer ejecutable del programa. Ejecutado desde terminal, sin interfaz grafica de usuario.
