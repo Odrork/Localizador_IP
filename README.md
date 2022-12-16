@@ -4,4 +4,5 @@
   
 ## Versiones 
 
-  >Version 1.0: PRimer ejecutable del programa. Ejecutado desde terminal, sin interfaz grafica de usuario.
+  >Version 1.0: Primer ejecutable del programa. Ejecutado desde terminal, sin interfaz grafica de usuario.
+  >
