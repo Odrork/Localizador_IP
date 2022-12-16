@@ -1,24 +1,25 @@
 """
         Interfaz grafica para Localizador de IP.
 
-        Version = 0.2
+        Version = 0.2.1
 
         Novedades: 
         
-            - Creacion de dos nuevos botones: 'Aceptar' y 'Cancelar' 
-            - Implementacion de la funcion de Localizar
+            - Boton aceptar suprimido, remplazado por un entry que devolvera el resultado
+            - Frame creado para poder darle estilo a la ventana
 
         ----Odrork----
 """
 
 from tkinter import * 
-from tkinter import ttk
+from tkinter import messagebox as MessageBox
 import geocoder as geo
 
 #Declaracion variable vacia, utilizada para almacenar la IP entrada.
-IP = ' '
+IP = '190.111.40.250'
 
-#Funcion que devuelve la direccion de la IP
+r= StringVar()
+
 def Localizar (IP): 
     g = geo.ip(IP)
     print('La IP entrada proviene de {}, {}'.format(g.country,g.city))
@@ -26,28 +27,31 @@ def Localizar (IP):
 #Creacion de la raiz. La raiz es eel contenedor base de todos los widgets que se iran integrando
 root = Tk()
 root.title('Localizador IP')        #Título de la ventana
-root.config(width=300, height=200)
+
+frame = Frame(root)
+frame.config(width=200, height=200, bg='CFCF0C')
 
 #Creacion del primer label de texto
-label = Label(root, text="Entrada IP")
-label.grid(row=0, column=0, sticky="w", padx=5, pady=5)
+label = Label(frame, text='Entrada IP')
+label.grid(row=0, column=0, sticky='w', padx=5, pady=5)
 
 #Creación de la entrada de IP por pantalla. 
-entry = Entry(root)
+entry = Entry(frame)
 entry.grid(row=0, column=1, padx=5, pady=5)
-entry.config(justify="rigth", state="normal")
+entry.config(justify='rigth', state='normal')
 
-#Boton 'Aceptar' 
-buttonAceptar = Button(root, text='Aceptar', command=Localizar(label))
-buttonAceptar.place(x=25, y=20)
-buttonAceptar.grid(row=4, column=0, padx=5, pady=5)
+#Label salida del resultado
+Label(frame, text="Localizacion").pack()
+label.grid(row=1,column=0,sticky='w', padx=5, pady=5)
+
+#Impresion del resultado
+Entry(frame, justify="center", textvariable=r, state="disabled").pack()
+entry.grid(row=1, column=1, padx=5, pady=5)
 
 #Boton 'Cancelar' 
-buttonCancelar = Button(root, text='Cancelar', command=root.destroy)
-buttonCancelar.place(x=175, y=20)
+buttonCancelar = Button(frame, text='Cerrar', command=root.destroy, justify='center')
+buttonCancelar.place(x=200, y=20)
 buttonCancelar.grid(row=4, column=1, padx=5, pady=5)
 
 #Loop de la ventana. 
 root.mainloop()
-
-
