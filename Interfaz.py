@@ -1,4 +1,4 @@
-""""""
+""""
             Interfaz grafica para Localizador de IP.
 
             Version = 0.2.4
