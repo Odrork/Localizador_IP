@@ -1,4 +1,4 @@
-""""
+"""
             Interfaz grafica para Localizador de IP.
 
             Version = 0.2.4
@@ -14,7 +14,7 @@
                 intetar capturar la variable y alamacenarla.
 
             ----Odrork----
-    """
+"""
 import tkinter as tk
 # from tkinter import * 
 from tkinter import messagebox as MessageBox
