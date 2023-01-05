@@ -4,5 +4,5 @@
   
 ## Versiones 
 
-  >Version 1.0: Primer ejecutable del programa. Ejecutado desde terminal, sin interfaz grafica de usuario.
-  >Version 1.1: Salida de cordenadas da la IP.
+  * Version 1.0: Primer ejecutable del programa. Ejecutado desde terminal, sin interfaz grafica de usuario.
+  * Version 1.1: Salida de cordenadas da la IP.
