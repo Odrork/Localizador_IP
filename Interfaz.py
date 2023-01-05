@@ -10,7 +10,7 @@
 
             Problemas: 
 
-                -Si asignamos una variable fija el programa funciona, el problema cero que viene al
+                -Si asignamos una variable fija el programa funciona, el problema creo que viene al
                 intetar capturar la variable y alamacenarla.
 
             ----Odrork----
