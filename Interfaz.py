@@ -15,6 +15,9 @@ def show_location():
 root = tk.Tk()
 root.title("IP Geolocation")
 
+ip_label = tk.Label(root, text="IP Address:")
+ip_label.pack()
+
 entry = tk.Entry(root)
 entry.pack()
 
