@@ -1,81 +1,27 @@
-"""
-            Interfaz grafica para Localizador de IP.
-
-            Version = 0.2.4
-
-            Novedades: 
-                
-                -Creación de una ventana emergente que devuelve el resultado de la IP
-
-
-            Problemas: 
-
-                -Si asignamos una variable fija el programa funciona, el problema creo que viene al
-                intetar capturar la variable y alamacenarla.
-
-            ----Odrork----
-"""
+import geocoder
 import tkinter as tk
-# from tkinter import * 
-from tkinter import messagebox as MessageBox
-import geocoder as geo
 
-#Funcion localizar IP 
+def get_location_from_ip(ip):
+    g = geocoder.ip(ip)
+    country = g.country
+    city = g.city
+    return f"Country: {country}\nCity: {city}"
 
-def Localizar ():
-    g = geo.ip(IP.get())
-    MessageBox.showinfo('Resultado','La IP entrada proviene de {}, {}'.format(g.city,g.country))
-    
-#Creacion de la raiz. La raiz es el contenedor base de todos los widgets que se iran integrando
+def show_location():
+    ip = entry.get()
+    location = get_location_from_ip(ip)
+    label.config(text=location)
+
 root = tk.Tk()
-root.title('Localizador IP')        #Título de la ventana
-root.config(bg='#83837F')       #Estilo de la ventana
-root.resizable(0,0)      #Ventana fija, posibilidad de escarlar tamaño
-root.geometry('250x150')        # Tamaño de ventana
+root.title("IP Geolocation")
 
-#Label titulo
-label_titulo = tk.Label(root, text='Localizador')
-label_titulo.place(x=92,y=5)
+entry = tk.Entry(root)
+entry.pack()
 
-#Label entrada
-label_entrada = tk.Label(root, text='Entrada IP')
-label_entrada.grid(row=1, column=0, sticky='w', padx=10, pady=5)
-label_entrada.place(x=10,y=40)
-label_entrada.config(width=10)
+button = tk.Button(root, text="Show Location", command=show_location)
+button.pack()
 
-#Variable para almacenar IP entrada
-IP = tk.StringVar()
+label = tk.Label(root, text="")
+label.pack()
 
-#Creación de la entrada de IP por pantalla. 
-entry_entrada = tk.Entry(root, textvariable=IP)
-entry_entrada.grid(row=1, column=1, padx=5, pady=5)
-entry_entrada.config(justify='rigth', state='normal')
-entry_entrada.place(x=100,y=40)
-
-#Label salida del resultado
-label_localizacion = tk.Label(root, text='Localizacion')
-label_localizacion.grid(row=2,column=0, sticky='w', padx=5, pady=5)
-label_localizacion.place(x=10, y=75)
-label_localizacion.config(width=10)
-
-#Impresion del resultado
-salida_localizacion = tk.Entry(root, state='readonly', textvariable=IP) #, justify="center", textvariable=r)
-salida_localizacion.grid(row=2, column=1, padx=5, pady=5)
-salida_localizacion.config(justify='rigth', state='disabled')
-salida_localizacion.place(x=100,y=76)
-
-#Boton 'Aceptar' 
-buttonAceptar = tk.Button(root, text='Aceptar',justify='center')#command=Localizar(IP)
-buttonAceptar.place(x=60, y=110)
-buttonAceptar.config(width=7, height=1, foreground='blue')
-buttonAceptar.config(command=Localizar(IP.get()))
-
-#Boton 'Cancelar' 
-buttonCancelar = tk.Button(root, text='Cerrar', command=root.destroy, justify='center')
-buttonCancelar.place(x=130, y=110)
-buttonCancelar.config(width=7,height=1, foreground='#F53A30')
-
-#Loop de la ventana
 root.mainloop()
-    
-        
