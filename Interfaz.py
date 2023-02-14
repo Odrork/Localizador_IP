@@ -1,27 +1,27 @@
 import geocoder
 import tkinter as tk
 
-def get_location_from_ip(ip):
+def LocalizacionIP(ip):
     g = geocoder.ip(ip)
-    country = g.country
+    pais = g.country
     city = g.city
-    return f"Country: {country}\nCity: {city}"
+    return f"Country: {pais}\nCity: {city}"
 
-def show_location():
+def MostrarIP():
     ip = entry.get()
-    location = get_location_from_ip(ip)
+    location = LocalizacionIP(ip)
     label.config(text=location)
 
 root = tk.Tk()
-root.title("IP Geolocation")
+root.title("Localizador IP")
 
-ip_label = tk.Label(root, text="IP Address:")
+ip_label = tk.Label(root, text="IP:")
 ip_label.pack()
 
 entry = tk.Entry(root)
 entry.pack()
 
-button = tk.Button(root, text="Show Location", command=show_location)
+button = tk.Button(root, text="Mostrar", command=MostrarIP)
 button.pack()
 
 label = tk.Label(root, text="")
